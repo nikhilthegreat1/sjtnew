@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>सत्यजय टाइम्स | Satyajay Times - हिंदी दैनिक</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Hindi friendly font -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
+    </script>
+
+    <div class="page-wrapper">
+
+        <!-- HEADER -->
+        <header class="site-header" id="top">
+            <div class="container header-inner">
+                <div class="logo-block">
+                    <img src="logo.jpg" alt="Satyajay Times logo" class="logo-img" />
+                    <div class="brand-text">
+                        <h1>सत्यजय टाइम्स</h1>
+                        <p>Satyajay Times</p>
+                        <span class="tagline">
+                            <i class="fa-solid fa-feather"></i>
+                            हिंदी दैनिक समाचार पत्र
+                        </span>
+                    </div>
+                </div>
+
+                <div class="meta-strip">
+                    <div class="meta-pill date">
+                        <span class="label">तारीख</span>
+                        <span class="value" id="date-now">--</span>
+                    </div>
+                    <div class="meta-pill time">
+                        <span class="label">समय</span>
+                        <span class="value" id="time-now">--:--</span>
+                    </div>
+                    <div class="meta-pill temperature">
+                        <span class="label">तापमान</span>
+                        <span class="value" id="temp-value">--°C</span>
+                    </div>
+                    <div class="meta-pill aqi">
+                        <span class="label">AQI</span>
+                        <span class="value" id="aqi-value">--</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- NAVBAR -->
+        <div class="nav-wrapper">
+            <nav class="site-nav">
+                <div class="container">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="#top" class="active">होम</a></li>
+                        <li class="nav-item"><a href="#faridabad">फरीदाबाद</a></li>
+                        <li class="nav-item"><a href="#haryana">हरियाणा</a></li>
+                        <li class="nav-item"><a href="#cricket">क्रिकेट</a></li>
+                        <li class="nav-item"><a href="#entertainment">मनोरंजन</a></li>
+                        <li class="nav-item"><a href="#national">राष्ट्रीय</a></li>
+                        <li class="nav-item"><a href="#international">अंतरराष्ट्रीय</a></li>
+                        <li class="nav-item"><a href="#about">हमारे बारे में</a></li>
+                        <li class="nav-item"><a href="#contact">संपर्क करें</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <div class="container">
+
+                <!-- BREAKING NEWS -->
+                <!--<section class="breaking-section">
+        <div class="breaking-bar">
+          <div class="breaking-label">
+            <i class="fa-solid fa-bolt"></i>
+            ब्रेकिंग न्यूज़
+          </div>
+          <div class="breaking-ticker">
+            <div class="ticker-track">
+              <div class="ticker-item"><time>09:10 PM</time> फरीदाबाद: मुख्य बाजार में ट्रैफिक व्यवस्था के लिए नया प्लान लागू</div>
+              <div class="ticker-item"><time>08:45 PM</time> हरियाणा कैबिनेट की बैठक में शिक्षा और स्वास्थ्य से जुड़े महत्वपूर्ण फैसले</div>
+              <div class="ticker-item"><time>08:15 PM</time> भारत बनाम ऑस्ट्रेलिया: सीरीज़ के तीसरे मैच में भारत की रोमांचक जीत</div>
+              <div class="ticker-item"><time>07:50 PM</time> बॉलीवुड अभिनेता की नई फिल्म ने पहले दिन ही बॉक्स ऑफिस पर रिकॉर्ड बनाया</div>
+              <div class="ticker-item"><time>07:20 PM</time> राष्ट्रीय स्तर पर नई आर्थिक नीति पर विशेषज्ञों की राय</div>
+              <div class="ticker-item"><time>06:55 PM</time> अंतरराष्ट्रीय मंच पर भारत की कूटनीतिक सफलता की नई कहानी</div>
+            </div>
+          </div>
+        </div>
+      </section>-->
+                <!-- DAILY PDF BUTTON -->
+                <div style="text-align:center; margin:24px 0;">
+                    <button id="openPdfBtn" style="
+      background:#b30000;
+      color:#fff;
+      border:none;
+      padding:12px 22px;
+      font-size:16px;
+      border-radius:12px;
+      cursor:pointer;">
+                        📰 आज का अख़बार (PDF)
+                    </button>
+                </div>
+
+
+                <!-- LATEST NEWS (AUTO LINK SYSTEM) -->
+                <section class="section-block">
+                    <div class="section-header">
+                        <h2>ताज़ा खबरें</h2>
+                        <span class="meta">YouTube / Facebook वीडियो और पोस्ट</span>
+                    </div>
+
+                    <!-- AUTO LINK BASED NEWS -->
+                    <div id="links-feed" class="news-grid"></div>
+
+                    <!-- OLD IMAGE + MANUAL SYSTEM (COMMENTED FOR FUTURE)
+        <div class="news-grid">
+          <article class="news-card">Old news cards here</article>
+        </div>
+        -->
+
+                </section>
+
+                <!-- ABOUT -->
+                <section id="about" class="info-section">
+                    <h2>हमारे बारे में</h2>
+                    <p><strong>सत्यजय टाइम्स</strong> फरीदाबाद और आसपास के क्षेत्रों के साथ-साथ प्रदेश,
+                        राष्ट्रीय और अंतरराष्ट्रीय मुद्दों पर संतुलित एवं विश्वसनीय खबरें देने के लिए प्रतिबद्ध हिंदी
+                        दैनिक समाचार पत्र है।</p>
+                </section>
+
+                <!-- CONTACT -->
+                <section id="contact" class="info-section">
+                    <h2>संपर्क करें</h2>
+                    <p>Email: <strong>satyajaytimes@gmail.com</strong></p>
+                    <p>Email: <strong>rupesh.bansal09@gmail.com</strong></p>
+                    <p>Phone: <strong>+91 9811232533 / 0129-4042533</strong></p>
+                    <p>Faridabad, Haryana Office: <strong>5R-1 1ST FLOOR NEAR HDFC BANK B.K. CHOWK NIT FARIDABAD,
+                            Faridabad, India, Haryana </strong></p>
+                </section>
+
+            </div>
+        </main>
+        <!-- LOCATION & SOCIAL -->
+        <section class="info-section">
+            <h2>हमसे जुड़ें</h2>
+
+            <!-- MAP -->
+            <div style="margin-bottom:20px;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.969725164537!2d77.29957937571166!3d28.392610775796694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdd01fb3ea26f%3A0xd222b6562fa41faf!2sSatyajay%20Times!5e1!3m2!1sen!2sin!4v1766245062531!5m2!1sen!2sin"
+                    width="100%" height="220" style="border:0; border-radius:12px;" loading="lazy">
+                </iframe>
+            </div>
+
+            <!-- SOCIAL LINKS -->
+            <div class="social-links">
+                <a href="https://www.facebook.com/SJTHaryana/" target="_blank">
+                    <i class="fa-brands fa-facebook"></i> Facebook
+                </a>
+
+                <a href="https://www.youtube.com/channel/UCKtD2rFhtIS6BBQ-sG9L4zQ" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> YouTube
+                </a>
+
+                <a href="https://www.instagram.com/satyajaytimes/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
+
+                <a href="https://x.com/times63519" target="_blank">
+                    <i class="fa-brands fa-x-twitter"></i> X (Twitter)
+                </a>
+            </div>
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-bottom">
+                    &copy; <span id="year-now"></span> सत्यजय टाइम्स · सर्वाधिकार सुरक्षित।
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <div id="pdfPopup" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  z-index:9999;
+  justify-content:center;
+  align-items:center;
+">
+
+        <div style="
+    background:#fff;
+    width:90%;
+    max-width:900px;
+    height:85%;
+    border-radius:16px;
+    padding:12px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+  ">
+
+            <button id="closePdfBtn" style="
+      position:absolute;
+      top:10px;
+      right:12px;
+      font-size:22px;
+      background:none;
+      border:none;
+      cursor:pointer;
+    ">✖</button>
+
+            <h3 style="margin:6px 0 10px;">आज का अख़बार</h3>
+
+            <iframe src="today.pdf" style="flex:1; border:none; border-radius:10px;"></iframe>
+
+            <a href="today.pdf" target="_blank" style="text-align:center; margin-top:10px; font-size:14px;">
+                📥 PDF नई टैब में खोलें
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- PDF POPUP -->
+
+
+</body>
+
+</html>

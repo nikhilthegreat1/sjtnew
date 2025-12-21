@@ -1,0 +1,295 @@
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: "Hind", sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
+}
+
+.page-wrapper {
+  background: #f3f4f6;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  background: linear-gradient(135deg, #7c0000, #b30000);
+  color: #fff;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-img {
+  width: 64px;
+  height: auto;
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.brand-text p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.tagline {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* ===== META STRIP ===== */
+/* ===== TOP META STRIP FIX ===== */
+
+.meta-strip {
+  display: flex;
+  justify-content: center;   /* center align */
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.meta-pill {
+  background: rgba(255, 255, 255, 0.18);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.meta-pill .label {
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+.meta-pill .value {
+  font-weight: 600;
+}
+
+
+/* ===== NAVBAR ===== */
+.nav-wrapper {
+  background: #111827;
+}
+
+.site-nav .nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item a {
+  display: block;
+  padding: 12px 16px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-item a:hover,
+.nav-item a.active {
+  background: #b30000;
+}
+
+/* ===== BREAKING NEWS ===== */
+.breaking-section {
+  margin-top: 16px;
+}
+
+.breaking-bar {
+  background: #fde68a;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.breaking-label {
+  font-weight: bold;
+  color: #92400e;
+  margin-right: 16px;
+  white-space: nowrap;
+}
+
+.breaking-ticker {
+  overflow: hidden;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 32px;
+  animation: scroll 25s linear infinite;
+}
+
+.ticker-item {
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* ===== SECTIONS ===== */
+.section-block {
+  margin-top: 32px;
+}
+
+.section-header h2 {
+  margin: 0;
+}
+
+.section-header .meta {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* ===== NEWS GRID ===== */
+.news-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.news-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.embed-box iframe {
+  width: 100%;
+  height: 240px;
+  border-radius: 12px;
+  border: none;
+}
+
+.news-time {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+/* ===== INFO SECTIONS ===== */
+.info-section {
+  margin-top: 32px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  margin-top: 40px;
+  background: #111827;
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 13px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .embed-box iframe {
+    height: 200px;
+  }
+}
+/* ===== FACEBOOK EMBED FIX ===== */
+
+/* Force Facebook posts to fit card */
+.fb-post,
+.fb-post span,
+.fb-post iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Prevent overlap inside cards */
+.embed-box {
+  overflow: hidden;
+}
+
+/* Make cards auto-adjust height */
+.news-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Facebook internal iframe fix */
+.fb-post iframe {
+  min-width: 100% !important;
+}
+@media (max-width: 640px) {
+  .fb-post {
+    transform: scale(0.95);
+    transform-origin: top left;
+  }
+}
+/* Hide temperature & AQI pills */
+.meta-pill.temperature,
+.meta-pill.aqi {
+  display: none;
+}
+/* ===== SOCIAL LINKS ===== */
+.social-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  text-decoration: none;
+  font-size: 15px;
+  color: #111;
+  background: #f3f4f6;
+  padding: 10px 14px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-links a:hover {
+  background: #b30000;
+  color: #fff;
+}
+
+.social-links i {
+  font-size: 18px;
+}
+
+
