@@ -5,7 +5,8 @@ let visibleCount = 0;
 const POSTS_PER_LOAD = 9;
 // AUTO LINK BASED NEWS SYSTEM
 
-fetch("links.txt")
+fetch("links.txt?v=" + Date.now())
+
   .then(response => response.text())
   .then(text => {
     const links = text
