@@ -84,20 +84,38 @@ else if (link.includes("facebook.com")) {
 document.getElementById("year-now").textContent = new Date().getFullYear();
 
 // ===== PDF POPUP =====
+// ===== PDF POPUP (SHOW ONCE IN 10 HOURS) =====
 document.addEventListener("DOMContentLoaded", () => {
 
     const openPdfBtn = document.getElementById("openPdfBtn");
     const closePdfBtn = document.getElementById("closePdfBtn");
     const pdfPopup = document.getElementById("pdfPopup");
   
-    // ✅ AUTO OPEN PDF ON PAGE LOAD
-    if (pdfPopup) {
-      pdfPopup.style.display = "flex";
+    const POPUP_KEY = "pdfPopupLastShown";
+    const TEN_HOURS = 10 * 60 * 60 * 1000; // 10 hours
+  
+    function shouldShowPopup() {
+      const lastShown = localStorage.getItem(POPUP_KEY);
+      if (!lastShown) return true;
+  
+      return (Date.now() - lastShown) > TEN_HOURS;
+    }
+  
+    function showPopup() {
+      if (pdfPopup) {
+        pdfPopup.style.display = "flex";
+        localStorage.setItem(POPUP_KEY, Date.now());
+      }
+    }
+  
+    // ✅ AUTO OPEN (only if 10 hours passed)
+    if (shouldShowPopup()) {
+      showPopup();
     }
   
     if (openPdfBtn) {
       openPdfBtn.onclick = () => {
-        pdfPopup.style.display = "flex";
+        showPopup();
       };
     }
   
@@ -108,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
   });
+  
   // ===== DATE & TIME =====
 function updateDateTime() {
     const now = new Date();
