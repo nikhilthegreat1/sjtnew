@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <title>फरीदाबाद न्यूज़ | सत्यजय टाइम्स</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- MAIN CSS (use same css) -->
+  <link rel="stylesheet" href="../styles.css?v=1">
+</head>
+
+<body>
+<div class="page-wrapper">
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo-block">
+      <img src="../logo.jpg" class="logo-img">
+      <div class="brand-text">
+        <h1>सत्यजय टाइम्स</h1>
+        <p>Satyajay Times</p>
+        <span class="tagline">हिंदी दैनिक समाचार पत्र</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAVBAR -->
+<div class="nav-wrapper">
+  <nav class="site-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="../index.html">होम</a></li>
+        <li><a href="index.html" class="active">फरीदाबाद</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<!-- PDF BUTTON -->
+<div style="text-align:center; margin:20px">
+  <button id="openPdfBtn">📰 आज का अख़बार (PDF)</button>
+</div>
+
+<!-- CONTENT -->
+<main class="main-content">
+  <div class="container">
+    <h2>फरीदाबाद न्यूज़</h2>
+    <div id="links-feed" class="news-grid"></div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-bottom">
+    © 2025 सत्यजय टाइम्स
+  </div>
+</footer>
+
+</div>
+
+<!-- PDF POPUP -->
+<div id="pdfPopup" style="display:none">
+  <iframe src="../today.pdf"></iframe>
+  <button id="closePdfBtn">✖</button>
+</div>
+
+<!-- FARIDABAD JS -->
+<script src="faridabad.js?v=1"></script>
+</body>
+</html>
